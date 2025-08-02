@@ -12,7 +12,7 @@ function MyBlog() {
     const fetchBlog = async () => {
       try {
         const token = localStorage.getItem("token");
-        const res = await axios.get(`${import.meta.env.VITE_API_URL}api/blogs/my-blog`, {
+        const res = await axios.get(`${import.meta.env.VITE_API_URL}/api/blogs/my-blog`, {
           headers: { Authorization: `Bearer ${token}` },
         });
         setBlogs(res.data);
@@ -29,7 +29,7 @@ function MyBlog() {
     try {
       const token = localStorage.getItem("token");
       const res = await axios.patch(
-        `${import.meta.env.VITE_API_URL}api/blogs/${id}/publish`,
+        `${import.meta.env.VITE_API_URL}/api/blogs/${id}/publish`,
         {},
         { headers: { Authorization: `Bearer ${token}` } }
       );

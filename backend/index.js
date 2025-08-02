@@ -9,7 +9,8 @@ const blogRoutes = require('./routes/blogRoutes')
 dotenv.config();
 const app = express();
 app.use(express.json());
-app.use(cors({ origin: "*" }));
+app.use(cors({ origin: 'https://omnify-blog-app-frontend.vercel.app', // ← replace this
+  credentials: true}));
 const port = process.env.PORT;
 connectDB();
 
