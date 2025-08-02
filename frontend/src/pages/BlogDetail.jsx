@@ -12,7 +12,7 @@ export default function BlogDetail() {
   useEffect(() => {
     const fetchBlog = async () => {
       try {
-        const res = await axios.get(`${process.env.REACT_APP_API_URL}/api/blogs/${id}`);
+        const res = await axios.get(`${import.meta.env.VITE_API_URL}/api/blogs/${id}`);
         setBlog(res.data);
         setLoading(false);
       } catch (err) {

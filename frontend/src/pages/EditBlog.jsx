@@ -16,7 +16,7 @@ function EditBlog() {
     const fetchBlog = async () => {
       try {
         const token = localStorage.getItem("token");
-        const res = await axios.get(`${process.env.REACT_APP_API_URL}/api/blogs/${id}`, {
+        const res = await axios.get(`${import.meta.env.VITE_API_URL}/api/blogs/${id}`, {
           headers: {
             Authorization: `Bearer ${token}`,
           },
@@ -39,7 +39,7 @@ function EditBlog() {
     try {
       const token = localStorage.getItem("token");
       await axios.put(
-        `${process.env.REACT_APP_API_URL}/api/blogs/${id}`,
+        `${import.meta.env.VITE_API_URL}/api/blogs/${id}`,
         { title, content, published },
         {
           headers: {
