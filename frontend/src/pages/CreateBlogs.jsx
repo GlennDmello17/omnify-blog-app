@@ -6,6 +6,7 @@ import { ArrowLeft } from "lucide-react";
 function CreateBlogs() {
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
+  const [published, setPublished] = useState(false); // ✅ new state
   const [error, setError] = useState("");
   const navigate = useNavigate();
 
@@ -23,7 +24,7 @@ function CreateBlogs() {
 
       const res = await axios.post(
         `${import.meta.env.VITE_API_URL}/api/blogs`,
-        { title, content },
+        { title, content, published }, // ✅ include published
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -72,6 +73,20 @@ function CreateBlogs() {
           value={content}
           onChange={(e) => setContent(e.target.value)}
         />
+
+        {/* ✅ Published checkbox */}
+        <div className="flex items-center gap-2">
+          <input
+            id="publish"
+            type="checkbox"
+            checked={published}
+            onChange={(e) => setPublished(e.target.checked)}
+            className="h-4 w-4"
+          />
+          <label htmlFor="publish" className="text-gray-700">
+            Publish
+          </label>
+        </div>
 
         <button
           type="submit"
