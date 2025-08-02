@@ -12,7 +12,7 @@ function MyBlog() {
     const fetchBlog = async () => {
       try {
         const token = localStorage.getItem("token");
-        const res = await axios.get(`http://localhost:3000/api/blogs/my-blog`, {
+        const res = await axios.get(`${process.env.REACT_APP_API_URL}/api/blogs/my-blog`, {
           headers: { Authorization: `Bearer ${token}` },
         });
         setBlogs(res.data);
@@ -29,7 +29,7 @@ function MyBlog() {
     try {
       const token = localStorage.getItem("token");
       const res = await axios.patch(
-        `http://localhost:3000/api/blogs/${id}/publish`,
+        `${process.env.REACT_APP_API_URL}/api/blogs/${id}/publish`,
         {},
         { headers: { Authorization: `Bearer ${token}` } }
       );
@@ -48,7 +48,7 @@ function MyBlog() {
 
     try {
       const token = localStorage.getItem("token");
-      await axios.delete(`http://localhost:3000/api/blogs/${id}`, {
+      await axios.delete(`${process.env.REACT_APP_API_URL}/api/blogs/${id}`, {
         headers: { Authorization: `Bearer ${token}` },
       });
 

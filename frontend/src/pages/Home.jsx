@@ -18,7 +18,7 @@ export default function Home() {
 
   const fetchBlogs = async (page) => {
     try {
-      const res = await axios.get(`http://localhost:3000/api/blogs/bulk?page=${page}`);
+      const res = await axios.get(`${process.env.REACT_APP_API_URL}/api/blogs/bulk?page=${page}`);
       setBlogs(res.data.blogs);
       setTotalPages(res.data.totalPages);
     } catch (err) {

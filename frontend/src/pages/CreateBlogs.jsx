@@ -22,7 +22,7 @@ function CreateBlogs() {
       const token = localStorage.getItem("token");
 
       const res = await axios.post(
-        "http://localhost:3000/api/blogs",
+        `${process.env.REACT_APP_API_URL}/api/blogs`,
         { title, content },
         {
           headers: {

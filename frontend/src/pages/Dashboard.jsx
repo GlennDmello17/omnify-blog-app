@@ -17,7 +17,7 @@ export default function Dashboard() {
 
   const fetchBlogs = async (page) => {
     try {
-      const res = await axios.get(`http://localhost:3000/api/blogs/bulk?page=${page}`);
+      const res = await axios.get(`${process.env.REACT_APP_API_URL}/api/blogs/bulk?page=${page}`);
       setBlogs(res.data.blogs);
       setTotalPages(res.data.totalPages);
     } catch (err) {
@@ -29,7 +29,7 @@ export default function Dashboard() {
   const fetchData = async () => {
     try {
       const token = localStorage.getItem("token");
-      const response = await axios.get("http://localhost:3000/api/auth/me", {
+      const response = await axios.get(`${process.env.REACT_APP_API_URL}/api/auth/me`, {
         headers: {
           Authorization: `Bearer ${token}`
         }
