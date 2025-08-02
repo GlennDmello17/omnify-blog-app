@@ -11,7 +11,7 @@ export default function Navbar({ navItems }) {
   const handleNavClick = (item) => {
     if (item.name === "Logout") {
       localStorage.removeItem("token");
-      navigate("/signin");
+      navigate("/");
     } else {
       navigate(item.path);
     }
