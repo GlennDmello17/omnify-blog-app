@@ -45,7 +45,7 @@ function CreateBlogs() {
     <div className="relative max-w-3xl mx-auto px-4 sm:px-6 py-6">
       {/* Back Button */}
       <button
-        onClick={() => navigate(-1)}
+        onClick={() => navigate('/dashboard')}
         className="absolute top-2 left-2 sm:top-4 sm:left-4 flex items-center gap-1 text-gray-700 hover:text-gray-900"
       >
         <ArrowLeft size={20} />
